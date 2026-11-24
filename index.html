@@ -187,7 +187,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .letter-paper h3 { max-width: 400px; margin: 24px 0; padding-right: 24px; font-size: 32px; line-height: 1.1; }
 .letter-paper > p:not(.letter-date) { margin: 20px 0; font: 22px/1.55 var(--serif); }
 .letter-date { color: var(--muted); font-size: 12px; }
-.letter-flower { position: absolute; top: 20px; right: 16px; width: 48px; opacity: .85; }
+.letter-flower { position: absolute; top: 20px; right: 16px; width: 48px; height: 72px; overflow: visible; opacity: .85; }
 .signature { font-style: italic !important; color: var(--rosewood); }
 /* The native dialog is a bottom sheet on phones, including devices with a home indicator. */
 dialog { width: 100%; max-width: none; max-height: calc(100dvh - 20px); margin: auto 0 0; padding: 28px 24px calc(24px + var(--safe-bottom)); overflow-y: auto; border: 1px solid #d1d4c4; border-radius: 24px 24px 0 0; color: var(--forest); background: var(--paper); text-align: center; box-shadow: 0 -12px 60px #162b2a26; }
@@ -290,7 +290,7 @@ input[type=range] { width: 100%; min-height: 48px; accent-color: var(--rosewood)
   .letter-paper { padding: 56px 64px; }
   .letter-paper h3 { font-size: 38px; }
   .letter-paper > p:not(.letter-date) { font-size: 24px; }
-  .letter-flower { top: 24px; right: 24px; width: 72px; }
+  .letter-flower { top: 24px; right: 24px; width: 72px; height: 108px; }
   dialog { width: 440px; padding: 40px; }
 }
 @media (min-width: 1400px) { .story-shell { padding-left: 64px; padding-right: 64px; } .garden-art, .celebration-art { height: 600px; } .invitation { min-height: 700px; } }
@@ -321,7 +321,7 @@ input[type=range] { width: 100%; min-height: 48px; accent-color: var(--rosewood)
 .book-position { margin-top: 12px; text-align: center; color: var(--muted); font-size: 12px; }
 .book-gesture-hint { max-width: 360px; margin: 8px auto 0; }
 .letter-flower { padding: 0; border: 0; background: none; cursor: pointer; }
-.letter-flower img { display: block; width: 100%; }
+.letter-flower img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
 .letter-paper > .letter-endnote { margin: 24px 0 0; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font: 13px/1.5 var(--sans); }
 .sheet-grip { position: relative; width: 80px; height: 40px; margin: -16px auto 0; touch-action: none; }
 .sheet-grip::before { content: ''; position: absolute; top: 16px; left: 20px; width: 40px; height: 4px; border-radius: 2px; background: var(--line); }
@@ -671,7 +671,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <section id="letter" class="scene letter-scene" aria-labelledby="letter-heading" hidden>
         <div class="section-heading"><p class="chapter-note">Saved the best for last</p><h2 id="letter-heading" tabindex="-1">A few words,<br>from my heart.</h2><p id="letter-instruction">Slide along the dotted line to open your letter.</p></div>
         <div id="sealed-envelope" class="envelope"><div class="tear-track"><div class="tear-mouth" aria-hidden="true"></div><div class="tear-peel" aria-hidden="true"><span>With love</span></div><label for="tear-slider" class="sr-only">Slide to tear open the envelope</label><input id="tear-slider" type="range" min="0" max="100" value="0"><span aria-hidden="true">Slide to tear</span></div><div class="envelope-face"><p>For you,<br><em>with all my love.</em></p><span class="seal">♡</span><img data-story-asset="assets/sunflower-pair.svg" alt="" class="envelope-flower"></div></div>
-        <article id="open-letter" class="letter-paper" hidden><button id="letter-replay" class="letter-flower" aria-label="Start our story again"><img data-story-asset="assets/sunflower-pair.svg" alt=""></button><p class="letter-date">November 17, 2026</p><h3>Happy Birthday & Forever</h3><p>Every moment with you feels like walking through that golden flower meadow. You bring so much joy, beauty, and light into every single day.</p><p>Thank you for being my laughter, my greatest adventure, and my safest home. I love you to the maximum, forever and always. Happy Birthday! ♡</p><p class="signature">Forever & always,<br>Me.</p><p class="letter-endnote">Tap the sunflower to begin again.</p></article>
+        <article id="open-letter" class="letter-paper" hidden><button id="letter-replay" class="letter-flower" aria-label="Start our story again"><img data-story-asset="assets/sunflower-pair.svg" alt=""></button><p class="letter-date">November 17, 2026</p><h3>Happy Birthday Bacha</h3><p>Every moment with you feels like walking through that golden flower meadow. You bring so much joy, beauty, and light into every single day.</p><p>Thank you for being my laughter, my greatest adventure, and my safest home. I love you to the maximum, forever and always. Happy Birthday! ♡</p><p>You have a restriction of what you bring home, but since you always wanted sunflowers, I planted this whole garden for you.</p><p class="signature">Forever & always,<br>Me.</p><p class="letter-endnote">Tap the sunflower to begin again.</p></article>
       </section>
     </main>
     <footer class="journey-footer"><ol class="chapter-list" aria-label="Story progress"><li aria-current="step"><span class="chapter-number">01</span><span>Garden</span></li><li><span class="chapter-number">02</span><span>Birthday</span></li><li><span class="chapter-number">03</span><span>Memories</span></li><li><span class="chapter-number">04</span><span>Letter</span></li></ol><span class="footer-note">For you. Always. <span aria-hidden="true">♡</span></span></footer>
@@ -1257,7 +1257,7 @@ function revealLetter() {
       { opacity: 1, transform: 'translateY(0) rotate(0)' }
     ], { duration: 850, easing: 'cubic-bezier(.16, 1, .3, 1)' });
   }
-  announce('Your letter is open. Happy Birthday & Forever.');
+  announce('Your letter is open. Happy Birthday Bacha.');
   chime(880);
 }
 $('tear-slider').addEventListener('input', event => {
